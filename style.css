@@ -1,0 +1,133 @@
+* {
+  background-color: rgb(197, 255, 242);
+  background-image: linear-gradient(bottom right,rgb(197, 255, 242), rgb(87, 206, 180) );
+}
+
+
+/* HEADER  */
+
+header {
+  margin-left: 20px;
+  display: inline;
+  color: #3d2aac;
+  font-size: 80px;
+  text-align: left;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-decoration: none;
+}
+header:hover {
+  color: white;
+  cursor: pointer;
+}
+
+/* BUTTON  */
+#newTweets {
+  display: inline-block;
+  text-align: center;
+  border-radius: 8px;
+  width:65%;
+  margin-top: 20px;
+  margin-left: 50px;
+  position: absolute;
+  background-color: #61daff;
+  font-size: 50px;
+  border: 2px solid rgb(69, 70, 69);
+  font-family: Cambria, Georgia, 'Times New Roman', Times, serif;
+}
+
+#newTweets:hover {
+  background-color: rgb(63, 65, 63); /* Green */
+  color: white;
+  cursor: pointer;
+}
+
+
+/* BAR */
+
+.btn-group .button {
+  border-radius: 10px;
+  background-color: rgb(163, 144, 206); /* Green */
+  border: 1px solid green;
+  color: rgb(15, 13, 13);
+  margin-top: 15px;
+  width: 25%;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 30px;
+  cursor: pointer;
+  float: left;
+}
+
+.btn-group .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+  background-color: rgb(63, 65, 63); /* Green */
+  color: white;
+}
+
+
+
+/* TWIDDS */
+
+#allTweets {
+  display: block;
+  height: 70px;
+  margin: 0px;
+  text-align: left;
+  width: 97%;
+  opacity: .9;
+
+}
+
+
+.tweets {
+  border-bottom: 4px solid rgba(112, 193, 247, 0.89);
+  display: block;
+  height: 70px;
+  margin: 20px;
+  text-align: left;
+  width: 97%;
+  z-index: 1;
+  font-family: Arial;
+}
+
+.user {
+  color: rgb(0, 162, 255);
+  font-weight: bold;
+  vertical-align: top;
+  font-size: 25x;
+  cursor: pointer;
+  font-family: Georgia;
+}
+
+/* #userlink {
+  display:block;
+  width:100%;
+  height:100%;
+  color: rgb(0, 162, 255);
+  font-weight: bold;
+  vertical-align: top;
+  font-size: 25x;
+} */
+
+
+
+.date {
+  text-align: right;
+  font-family: serif;
+}
+
+/* NAVBAR */
+
+.navbar {
+  display: block;
+  position: absolute;
+  color: blue;
+  top: 0;
+  z-index: 1;
+}
+

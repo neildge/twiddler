@@ -1,27 +1,85 @@
+<!--
+Show the user new tweets somehow. (You can show them automatically as they're created, or create a button that displays new tweets.)
+
+Display the timestamps of when the tweets were created. This timestamp should reflect the actual time the tweets were created, and should not just be hardcoded.
+
+Design your interface so that you want to look at and use the product you're making.
+
+Allow the user to click on a username to see that user's timeline.
+-->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
   <head>
+    <meta charset="utf-8">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
+    <header>
+        <a href = index.html>twiddler</a>
+        <button id='newTweets'> Show New Twidds</button>
+        <div class="btn-group">
+          <button class="button">News</button>
+          <button class="button">Trending</button>
+          <button class="button">About</button>
+          <button class="button">Contact Us</button>
+        </div>
+      <div></br></div>
+    </header>
+
+    <div id="allTweets"></div>
+    <h2></h2>
     <script>
 
       $(document).ready(function(){
+
+
         var $body = $('body');
-        $body.html('');
-
+        var $allTweets = $('#allTweets');
         var index = streams.home.length - 1;
-        while(index >= 0){
+        for (var i=0; i<10; i++) {
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+          var message = tweet.message;
+          var user = tweet.user;
+          var timestamp = tweet.created_at;
+          var userID = user;
+          $tweet = $('<div class="tweets ' + userID + '"><div class="user">@' + user + '</div><div class="message"></br>' + message + '</div><div class="date">' + timestamp + '</div></div>');
+          $tweet.appendTo('#allTweets');
+          index--;
+        };
 
+        $('#newTweets').click(function () {
+          var $body = $('body');
+          var $allTweets = $('#allTweets');
+          var index = streams.home.length - 1;
+
+          for (var i=0; i<10; i++) {
+            var tweet = streams.home[index];
+            var message = tweet.message;
+            var user = tweet.user;
+            var timestamp = tweet.created_at;
+            var userID = user;
+            $tweet = $('<div class="tweets ' + userID + '"><div class="user">@' + user + '</div><div class="message"></br>' + message + '</div><div class="date">' + timestamp + '</div></div>');
+            $tweet.prependTo('#allTweets');
+            index--;
+          };
+        });
+
+
+        // $(".tweets").on("click", ".user", function(){
+        //   alert($(this).text());
+        // });
+        $('#allTweets').on('click', '.user', function(){
+          var ID = $(this).parent().attr('class');
+
+          var newID = ID.split(' ');
+          $('.tweets').not($('.' + newID[1])).hide();
+        });
       });
-
     </script>
   </body>
 </html>
